@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Status Pesanan — Laundry Keluarga Cemara</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="status.css" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="order-navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <div class="brand-icon"><i class="bi bi-basket2-fill"></i></div>
+                <span class="brand-name">Cemara</span>
+            </a>
+            <div class="nav-right">
+                <a href="order.html" class="btn-new-order">
+                    <i class="bi bi-plus-circle me-1"></i>Pesanan Baru
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="status-main">
+        <div class="status-wrap">
+
+            <!-- Header -->
+            <div class="status-header">
+                <span class="step-tag">Riwayat Pesanan</span>
+                <h1 class="status-title">Status <span class="text-teal">Pesanan</span></h1>
+                <p class="status-sub">Pantau perkembangan laundry kamu secara real-time</p>
+            </div>
+
+            <!-- Filter / Search -->
+            <div class="search-bar">
+                <div class="search-wrap">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="searchInput" placeholder="Cari ID pesanan atau nama..."
+                        oninput="filterOrders()" />
+                </div>
+                <div class="filter-tabs">
+                    <button class="ftab active" onclick="filterByStatus('all', this)">Semua</button>
+                    <button class="ftab" onclick="filterByStatus('Menunggu Penjemputan', this)">Menunggu</button>
+                    <button class="ftab" onclick="filterByStatus('Dicuci', this)">Dicuci</button>
+                    <button class="ftab" onclick="filterByStatus('Selesai', this)">Selesai</button>
+                </div>
+            </div>
+
+            <!-- Orders List -->
+            <div id="ordersList" class="orders-list">
+                <!-- Diisi oleh JS -->
+            </div>
+
+            <!-- Empty state -->
+            <div id="emptyState" class="empty-state d-none">
+                <div class="empty-icon"><i class="bi bi-bag-x"></i></div>
+                <h4>Belum ada pesanan</h4>
+                <p>Yuk buat pesanan laundry pertamamu!</p>
+                <a href="order.html" class="btn-go-order">
+                    <i class="bi bi-bag-plus-fill me-2"></i>Buat Pesanan
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ORDER DETAIL MODAL -->
+    <div class="modal-overlay d-none" id="detailModal" onclick="closeModal(event)">
+        <div class="modal-box" id="modalBox">
+            <button class="modal-close" onclick="closeModalBtn()"><i class="bi bi-x-lg"></i></button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- WA Float -->
+    <a href="https://wa.me/62085717642656" class="wa-float" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="status.js"></script>
+</body>
+
+</html>
